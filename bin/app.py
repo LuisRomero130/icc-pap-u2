@@ -1,8 +1,8 @@
 import re
 def main():
     #runEjemplo1()
-    runEjemplo2()
-    #runEjemplo3()
+    #runEjemplo2()
+    runEjemplo3()
 
 def runEjemplo1():
     patron= r"ab*"
@@ -19,6 +19,15 @@ def runEjemplo2():
         res= re.fullmatch(regex,i)
         print(f"{i}=>{res}")
 
+import re
+
+def runEjemplo3():
+    texto = "Sensores: T001 reporta 23.5 C ; O001 reporta 12 PERSONAS; T002 reporta -2 C."
+
+    patron = re.compile(r"T[0-9]{3}")
+
+    for i in patron.finditer(texto):
+        print(f"Encontrado: {i.group()}, posición: {i.start()}")
 
 
 if __name__ == "__main__" :
